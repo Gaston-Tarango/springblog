@@ -1,29 +1,30 @@
 package com.codeup.springblog.controllers;
 
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 public class PostController {
     @GetMapping("/posts")
-    public String index(Model model){
-        return "posts/index";
+    @ResponseBody
+    public String index(){
+        return "This is home to see posts";
     }
 
     @GetMapping("/posts/{id}")
+    @ResponseBody
     public String viewPost(@PathVariable long id, Model model){
-        return "posts/show";
+        return "This is to see posts id";
     }
 
     @GetMapping("/posts/create")
+    @ResponseBody
     public String createPost(@PathVariable long id, Model model){
-        return "posts/create";
+        return "This is create posts";
     }
 
     @PostMapping("/posts/create")
+    @ResponseBody
     public String submitPost(@ModelAttribute Model model){
-        return "redirect:/home";
+        return "This is submit posts";
     }
 }
