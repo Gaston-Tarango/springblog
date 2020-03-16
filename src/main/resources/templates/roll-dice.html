@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Roll-Dice</title>
+</head>
+<body>
+<h2>Guess a Number!</h2>
+<form action="/roll-dice/n">
+    <input type="submit" name="num" value="1">
+    <input type="submit" name="num" value="2">
+    <input type="submit" name="num" value="3">
+    <input type="submit" name="num" value="4">
+    <input type="submit" name="num" value="5">
+    <input type="submit" name="num" value="6">
+</form>
+
+<h3 th:text="${num}">: Your answer was!</h3>
+<h3 th:text="${random}">: The correct answer is!</h3>
+
+<br>
+<span th:if="${num} != null">
+        <h4 th:if="${num} == ${random}">Victory</h4>
+    <h4 th:if="${num} != ${random}" style="color:red">Loser</h4>
+    </span>
+
+
+</body>
+</html>

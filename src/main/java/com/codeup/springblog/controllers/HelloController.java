@@ -45,7 +45,7 @@ class HelloController {
         fruitBasket.add("grapes");
         fruitBasket.add("starfruit");
         fruitBasket.add("papaya");
-        fruitBasket.add("jap pear");
+        fruitBasket.add("japanese pear");
         fruitBasket.add("pineapple");
         fruitBasket.add("lemon");
         fruitBasket.add("durian");
