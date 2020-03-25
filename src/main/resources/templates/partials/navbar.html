@@ -1,45 +1,30 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>nav</title>
+    <title>Navbar Title</title>
 </head>
 <body>
-
-<nav th:fragment="navbar" class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="/home">Blog</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+<nav th:fragment="navbar" class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="/home">Spring Blog</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav w-100">
-            <span th:if="${user == null}" class="w-100 d-flex">
-                <li>
-                <form th:action="@{/login}" th:method="get">
-                    <button class="btn-link btn" >Login</button>
-                </form>
-            </li><li>
-                <form th:action="@{/sign-up}" th:method="get">
-                    <button class="btn-link btn" >Sign Up</button>
-                </form>
-            </li>
-            </span>
-
-            <span th:if="${user != null}" class="w-100 d-flex">
-            <li class="nav-item">
-                <a class="nav-link" href="/posts/create">Create Post</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/posts">View All Posts</a>
-            </li>
-                <li class="ml-auto">
-                <form th:action="@{/logout}" th:method="post" >
-                    <button class="btn-link btn" >Logout</button>
-                </form>
-            </li>
-            </span>
-        </ul>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+            <a class="nav-item nav-link active" href="/posts">Posts <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" href="posts/create">Create a Post</a>
+            <a class="nav-item nav-link" href="posts/edit">Edit a Post</a>
+        </div>
     </div>
+    <form class="form-inline">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
+    </form>
+    <form th:action="@{/logout}" th:method="post">
+        <button class="btn-link btn my-2 my-sm-0 ml-2" style="color: white">Logout</button>
+    </form>
 </nav>
+
 </body>
 </html>

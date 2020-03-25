@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="partials/head :: head('Edit Post')"></head>
+<body>
+<nav th:replace="partials/navbar :: navbar"></nav>
+
+<div class="container mt-4">
+    <h1>Edit Post</h1>
+
+    <form th:action="@{|/posts/${post.id}/edit|}" th:method="POST">
+        <label for="title">Post Title</label>
+        <br>
+        <input type="text" id="title" name="title" th:value="${post.title}" placeholder="Enter new post title">
+        <br>
+        <label for="body" class="mt-3">Post Body</label>
+        <br>
+        <textarea name="body" id="body" cols="30" rows="10" th:text="${post.body}" placeholder="Enter new post body"></textarea>
+        <br>
+        <button>Update</button>
+    </form>
+</div>
+
+<th:block th:replace="partials/scriptsBootstrap :: scripts" />
+</body>
+</html>
